@@ -1,3 +1,3 @@
 export default {
-  title: 'App Name'
+  title: 'أكادمية العثمان'
 };

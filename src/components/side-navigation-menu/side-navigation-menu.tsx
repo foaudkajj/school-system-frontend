@@ -45,7 +45,6 @@ export default function (props: any) {
     if (!treeView) {
       return;
     }
-    debugger;
     if (currentPath !== undefined) {
       treeView.selectItem(currentPath);
       treeView.expandItem(currentPath);

@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import appInfo from './app-info';
-import { SideNavOuterToolbar as SideNavBarLayout } from './layouts';
+import { SideNavInnerToolbar as SideNavBarLayout, } from './layouts';
 import { Footer } from './components';
 import Profile from './pages/profile/profile';
 import Home from './pages/home/home';
