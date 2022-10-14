@@ -1,17 +1,18 @@
-import React from 'react';
-import { HashRouter as Router } from 'react-router-dom';
-import LoadPanel from 'devextreme-react/load-panel';
+import React from "react";
+import { HashRouter as Router } from "react-router-dom";
+import LoadPanel from "devextreme-react/load-panel";
 
-import { NavigationProvider } from './contexts/navigation';
-import { AuthProvider, useAuth } from './contexts/auth';
-import { useScreenSizeClass } from './utils/media-query';
-import Content from './Content';
-import NotAuthenticatedContent from './NotAuthenticatedContent';
+import { NavigationProvider } from "./contexts/navigation";
+import { AuthProvider, useAuth } from "./contexts/auth";
+import { useScreenSizeClass } from "./utils/media-query";
+import Content from "./Content";
+import NotAuthenticatedContent from "./NotAuthenticatedContent";
 
-import 'devextreme/dist/css/dx.common.css';
-import './themes/generated/theme.base.css';
-import './themes/generated/theme.additional.css';
-import './dx-styles.scss';
+import "devextreme/dist/css/dx.common.css";
+import "./themes/generated/theme.base.css";
+import "./themes/generated/theme.additional.css";
+import "./dx-styles.scss";
+import config from "devextreme/core/config";
 
 function App() {
   const { user, loading } = useAuth();
@@ -29,6 +30,10 @@ function App() {
 
 export default function () {
   const screenSizeClass = useScreenSizeClass();
+
+  config({
+    rtlEnabled: true,
+  });
 
   return (
     <Router>
