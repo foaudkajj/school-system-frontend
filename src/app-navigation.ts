@@ -6,12 +6,17 @@ export const navigation = [
   },
   {
     text: "إدارة الطلاب",
-    icon: "user",
+    icon: "fa-solid fa-users",
     items: [
       {
         text: "المسجلين",
-        icon: "runner",
+        icon: "fa-solid fa-user",
         path: "/students",
+      },
+      {
+        text: "التقييم",
+        icon: "fa-solid fa-chalkboard-user",
+        path: "/student-evaluation",
       },
     ],
   },
@@ -24,9 +29,9 @@ export const navigation = [
         path: "/profile",
       },
       {
-        text: 'Display Data',
-        path: '/display-data'
-      }
+        text: "Display Data",
+        path: "/display-data",
+      },
     ],
   },
 ];

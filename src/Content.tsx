@@ -8,6 +8,7 @@ import Profile from './pages/profile/profile';
 import Home from './pages/home/home';
 import DisplayData from './pages/display-data/display-data';
 import Students from './pages/students/students';
+import StudentEvaluation from './pages/student-evaluation/student-evaluation';
 
 export default function () {
   return (
@@ -18,6 +19,7 @@ export default function () {
         <Route path="/profile" element={<Profile currentPath={"/profile"} />} />
         <Route path="/display-data" element={<DisplayData currentPath={"/display-data"} />} />
         <Route path="/students" element={<Students currentPath={"/students"} />} />
+        <Route path="/student-evaluation" element={<StudentEvaluation currentPath={"/student-evaluation"} />} />
         <Route
           path="*"
           element={<Navigate to="/home" />}

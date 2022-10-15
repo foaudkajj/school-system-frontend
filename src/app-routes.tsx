@@ -1,5 +1,5 @@
 import { withNavigationWatcher } from "./contexts/navigation";
-import { HomePage, DisplayDataPage, ProfilePage, Students } from "./pages";
+import { HomePage, DisplayDataPage, ProfilePage, StudentsPage, StudentEvaluationPage } from "./pages";
 
 const routes = [
   {
@@ -16,7 +16,11 @@ const routes = [
   },
   {
     path: "/students",
-    component: <Students />,
+    component: <StudentsPage />,
+  },
+  {
+    path: "/student-evaluation",
+    component: <StudentEvaluationPage />,
   },
 ];
 
