@@ -11,6 +11,7 @@ import { useScreenSize } from "../../utils/media-query";
 import { useMenuPatch } from "../../utils/patches";
 
 import "./side-nav-inner-toolbar.scss";
+import { ClickEvent } from "devextreme/ui/button";
 
 interface IProps {
   title: string;
@@ -26,14 +27,14 @@ export default function ({ title, children }: IProps) {
     isLarge ? MenuStatus.Opened : MenuStatus.Closed
   );
 
-  const toggleMenu = useCallback(({ event }) => {
+  const toggleMenu = (e: ClickEvent) => {
     setMenuStatus((prevMenuStatus) =>
       prevMenuStatus === MenuStatus.Closed
         ? MenuStatus.Opened
         : MenuStatus.Closed
     );
-    event.stopPropagation();
-  }, []);
+    e.event?.stopPropagation();
+  };
 
   const temporaryOpenMenu = useCallback(() => {
     setMenuStatus((prevMenuStatus) =>
@@ -49,7 +50,7 @@ export default function ({ title, children }: IProps) {
         ? MenuStatus.Closed
         : prevMenuStatus
     );
-    return true;
+    return false;
   }, [isLarge]);
 
   const onNavigationChanged = useCallback(
@@ -109,11 +110,7 @@ export default function ({ title, children }: IProps) {
             <Toolbar id={"navigation-header"}>
               {!isXSmall && (
                 <Item location={"before"} cssClass={"menu-button"}>
-                  <Button
-                    icon="menu"
-                    stylingMode="text"
-                    onClick={() => toggleMenu}
-                  />
+                  <Button icon="menu" stylingMode="text" onClick={toggleMenu} />
                 </Item>
               )}
               <Item
