@@ -14,7 +14,7 @@ export default (props: any) => {
   }, [currentPath, setNavigationData]);
   return (
     <React.Fragment>
-      <h2 className={'content-block'}>Home</h2>
+      <h2 className={'content-block'}>الصفحة الرئيسية</h2>
       <div className={'content-block'}>
         <div className={'dx-card responsive-paddings'}>
           <div className={'logos-container'}>
