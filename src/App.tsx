@@ -13,6 +13,9 @@ import "./themes/generated/theme.base.css";
 import "./themes/generated/theme.additional.css";
 import "./dx-styles.scss";
 import config from "devextreme/core/config";
+import "./i18n/i18n";
+import { loadMessages, locale } from "devextreme/localization";
+import arMessages from "devextreme/localization/messages/ar.json";
 
 function App() {
   const { user, loading } = useAuth();
@@ -34,6 +37,9 @@ export default function () {
   config({
     rtlEnabled: true,
   });
+
+  loadMessages(arMessages);
+  locale("ar-SY");
 
   return (
     <Router>
