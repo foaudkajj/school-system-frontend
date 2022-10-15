@@ -18,6 +18,11 @@ export const navigation = [
         icon: "fa-solid fa-chalkboard-user",
         path: "/student-evaluation",
       },
+      {
+        text: "الدفعات",
+        icon: "fa-solid fa-credit-card",
+        path: "/installments",
+      },
     ],
   },
   {

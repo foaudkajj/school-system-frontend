@@ -30,6 +30,12 @@ export const ar = {
     mid: "وسط",
     bad: "سيء",
   },
+  installment: {
+    student: "اسم الطالب",
+    date: "التاريخ",
+    amount: "المبلغ",
+    "amount-min-validation": "يجب أن يكون المبلغ أكبر من الصفر",
+  },
   messages: {
     unsucessful: "حدث خطأ غير متوقع.",
     sucessful: "تم العملية بنجاح",
