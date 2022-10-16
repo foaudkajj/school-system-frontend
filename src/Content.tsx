@@ -10,6 +10,7 @@ import DisplayData from "./pages/display-data/display-data";
 import Students from "./pages/students/students";
 import StudentEvaluation from "./pages/student-evaluation/student-evaluation";
 import Installment from "./pages/installment/installment";
+import Teacher from "./pages/teacher/teacher";
 
 export default function () {
   return (
@@ -32,6 +33,10 @@ export default function () {
         <Route
           path="/installments"
           element={<Installment currentPath={"/installments"} />}
+        />
+        <Route
+          path="/teachers"
+          element={<Teacher currentPath={"/teachers"} />}
         />
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>

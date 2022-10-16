@@ -9,7 +9,7 @@ export const navigation = [
     icon: "fa-solid fa-users",
     items: [
       {
-        text: "المسجلين",
+        text: "الطلاب",
         icon: "fa-solid fa-user",
         path: "/students",
       },
@@ -22,6 +22,17 @@ export const navigation = [
         text: "الدفعات",
         icon: "fa-solid fa-credit-card",
         path: "/installments",
+      },
+    ],
+  },
+  {
+    text: "إدارة الكادر",
+    icon: "fa-solid fa-person-chalkboard",
+    items: [
+      {
+        text: "المدرسين",
+        icon: "fa-solid fa-chalkboard-user",
+        path: "/teachers",
       },
     ],
   },

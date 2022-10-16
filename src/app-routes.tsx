@@ -6,6 +6,7 @@ import {
   StudentsPage,
   StudentEvaluationPage,
   InstallemntPage,
+  TeacherPage,
 } from "./pages";
 
 const routes = [
@@ -32,6 +33,10 @@ const routes = [
   {
     path: "/installments",
     component: <InstallemntPage />,
+  },
+  {
+    path: "/teachers",
+    component: <TeacherPage />,
   },
 ];
 

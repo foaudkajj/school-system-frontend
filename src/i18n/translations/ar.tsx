@@ -1,5 +1,6 @@
 export const ar = {
   students: {
+    title: "الطلاب",
     name: "الاسم",
     surname: "الكنية",
     gender: "الجنس",
@@ -16,6 +17,7 @@ export const ar = {
     female: "انثى",
   },
   "student-evaluation": {
+    title: "التقييم",
     student: "اسم الطالب",
     date: "التاريخ",
     attendance: "الحضور",
@@ -31,13 +33,26 @@ export const ar = {
     bad: "سيء",
   },
   installment: {
+    title: "الدفعات",
     student: "اسم الطالب",
     date: "التاريخ",
     amount: "المبلغ",
     "amount-min-validation": "يجب أن يكون المبلغ أكبر من الصفر",
   },
+  teacher: {
+    title: "المدرسين",
+    name: "الاسم",
+    surname: "الكنية",
+    gender: "الجنس",
+    "tr-name": "الاسم TR",
+    "tr-surname": "الكنية TR",
+    gsm: "الهاتف",
+    "identity-no": "رقم الهوية",
+    male: "ذكر",
+    female: "انثى",
+  },
   messages: {
     unsucessful: "حدث خطأ غير متوقع.",
-    sucessful: "تم العملية بنجاح",
+    sucessful: "تمت العملية بنجاح",
   },
 };
