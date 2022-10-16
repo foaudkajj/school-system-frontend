@@ -51,6 +51,13 @@ export const ar = {
     male: "ذكر",
     female: "انثى",
   },
+  login: {
+    username: "اسم المستخدم",
+    password: "كلمة المرور",
+    "remember-me": "تذكرني",
+    "forgot-password": "نسيت كلمة المرور؟",
+    "sign-in": "تسجيل الدخول",
+  },
   messages: {
     unsucessful: "حدث خطأ غير متوقع.",
     sucessful: "تمت العملية بنجاح",

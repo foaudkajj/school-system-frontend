@@ -7,15 +7,25 @@ import {
   Scrolling,
   StringLengthRule,
 } from "devextreme-react/data-grid";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import DxStoreService from "../../services/dx-store.service";
 import DataSource from "devextreme/data/data_source";
 import GetService from "../../services/get.service";
+import { useNavigation } from "../../contexts/navigation";
 
 const SERVICE_NAME = "STUDENT";
 
 export default (props: any) => {
+  const { currentPath } = props;
+  const { setNavigationData } = useNavigation();
+
+  useEffect(() => {
+    if (setNavigationData) {
+      setNavigationData({ currentPath: currentPath });
+    }
+  }, [setNavigationData, currentPath]);
+
   const { t } = useTranslation();
   const genderList = [
     {
@@ -60,138 +70,136 @@ export default (props: any) => {
   return (
     <React.Fragment>
       <h2 className={"content-block"}>{t("students.title")}</h2>
-      <div className={"content-block responsive-paddings"}>
-        <div className={"dx-card responsive-paddings"}>
-          <DataGrid
-            ref={studentsGrid}
-            className={"dx-card wide-card"}
-            dataSource={store}
-            allowColumnResizing={true}
-            columnAutoWidth={true}
-            showBorders={true}
-            wordWrapEnabled={true}
-            allowColumnReordering={true}
+      <div className={"content-block dx-card responsive-paddings"}>
+        <DataGrid
+          ref={studentsGrid}
+          className={"dx-card wide-card"}
+          dataSource={store}
+          allowColumnResizing={true}
+          columnAutoWidth={true}
+          showBorders={true}
+          wordWrapEnabled={true}
+          allowColumnReordering={true}
+        >
+          <Scrolling columnRenderingMode={"virtual"} />
+          <Editing
+            mode={"form"}
+            allowAdding={true}
+            allowDeleting={true}
+            allowUpdating={true}
+          ></Editing>
+
+          <Column
+            dataField={"id"}
+            caption={"id"}
+            dataType={"string"}
+            visible={false}
+            formItem={{ visible: false }}
+          />
+
+          <Column
+            dataField={"name"}
+            caption={t("students.name")}
+            dataType={"string"}
           >
-            <Scrolling columnRenderingMode={"virtual"} />
-            <Editing
-              mode={"form"}
-              allowAdding={true}
-              allowDeleting={true}
-              allowUpdating={true}
-            ></Editing>
+            <StringLengthRule max={50} />
+            <RequiredRule />
+          </Column>
 
-            <Column
-              dataField={"id"}
-              caption={"id"}
-              dataType={"string"}
-              visible={false}
-              formItem={{ visible: false }}
+          <Column
+            dataField={"surname"}
+            caption={t("students.surname")}
+            dataType={"string"}
+          >
+            <StringLengthRule max={50} />
+            <RequiredRule />
+          </Column>
+
+          <Column
+            dataField={"gender"}
+            caption={t("students.gender")}
+            dataType={"string"}
+          >
+            <Lookup
+              dataSource={genderList}
+              displayExpr={"name"}
+              valueExpr={"id"}
             />
+            <RequiredRule />
+          </Column>
 
-            <Column
-              dataField={"name"}
-              caption={t("students.name")}
-              dataType={"string"}
-            >
-              <StringLengthRule max={50} />
-              <RequiredRule />
-            </Column>
+          <Column
+            dataField={"trName"}
+            caption={t("students.tr-name")}
+            dataType={"string"}
+          >
+            <StringLengthRule max={50} />
+            <RequiredRule />
+          </Column>
 
-            <Column
-              dataField={"surname"}
-              caption={t("students.surname")}
-              dataType={"string"}
-            >
-              <StringLengthRule max={50} />
-              <RequiredRule />
-            </Column>
+          <Column
+            dataField={"trSurname"}
+            caption={t("students.tr-surname")}
+            dataType={"string"}
+          >
+            <StringLengthRule max={50} />
+            <RequiredRule />
+          </Column>
 
-            <Column
-              dataField={"gender"}
-              caption={t("students.gender")}
-              dataType={"string"}
-            >
-              <Lookup
-                dataSource={genderList}
-                displayExpr={"name"}
-                valueExpr={"id"}
-              />
-              <RequiredRule />
-            </Column>
+          <Column
+            dataField={"gsm"}
+            caption={t("students.gsm")}
+            dataType={"string"}
+          ></Column>
 
-            <Column
-              dataField={"trName"}
-              caption={t("students.tr-name")}
-              dataType={"string"}
-            >
-              <StringLengthRule max={50} />
-              <RequiredRule />
-            </Column>
+          <Column
+            dataField={"identityNo"}
+            caption={t("students.identity-no")}
+            dataType={"string"}
+          >
+            <StringLengthRule max={20} />
+          </Column>
 
-            <Column
-              dataField={"trSurname"}
-              caption={t("students.tr-surname")}
-              dataType={"string"}
-            >
-              <StringLengthRule max={50} />
-              <RequiredRule />
-            </Column>
+          <Column
+            dataField={"address"}
+            caption={t("students.address")}
+            dataType={"string"}
+          >
+            <StringLengthRule max={1000} />
+          </Column>
 
-            <Column
-              dataField={"gsm"}
-              caption={t("students.gsm")}
-              dataType={"string"}
-            ></Column>
+          <Column
+            dataField={"fatherName"}
+            caption={t("students.father-name")}
+            dataType={"string"}
+          >
+            <StringLengthRule max={50} />
+          </Column>
 
-            <Column
-              dataField={"identityNo"}
-              caption={t("students.identity-no")}
-              dataType={"string"}
-            >
-              <StringLengthRule max={20} />
-            </Column>
+          <Column
+            dataField={"fatherNumber"}
+            caption={t("students.father-number")}
+            dataType={"string"}
+          >
+            <StringLengthRule max={20} />
+          </Column>
 
-            <Column
-              dataField={"address"}
-              caption={t("students.address")}
-              dataType={"string"}
-            >
-              <StringLengthRule max={1000} />
-            </Column>
+          <Column
+            dataField={"motherName"}
+            caption={t("students.mother-name")}
+            dataType={"string"}
+          >
+            <StringLengthRule max={50} />
+          </Column>
 
-            <Column
-              dataField={"fatherName"}
-              caption={t("students.father-name")}
-              dataType={"string"}
-            >
-              <StringLengthRule max={50} />
-            </Column>
-
-            <Column
-              dataField={"fatherNumber"}
-              caption={t("students.father-number")}
-              dataType={"string"}
-            >
-              <StringLengthRule max={20} />
-            </Column>
-
-            <Column
-              dataField={"motherName"}
-              caption={t("students.mother-name")}
-              dataType={"string"}
-            >
-              <StringLengthRule max={50} />
-            </Column>
-
-            <Column
-              dataField={"motherNumber"}
-              caption={t("students.mother-number")}
-              dataType={"string"}
-            >
-              <StringLengthRule max={20} />
-            </Column>
-          </DataGrid>
-        </div>
+          <Column
+            dataField={"motherNumber"}
+            caption={t("students.mother-number")}
+            dataType={"string"}
+          >
+            <StringLengthRule max={20} />
+          </Column>
+        </DataGrid>
       </div>
     </React.Fragment>
   );

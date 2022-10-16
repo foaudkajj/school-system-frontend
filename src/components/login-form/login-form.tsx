@@ -1,95 +1,107 @@
-import React, { useState, useRef, useCallback } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useRef, useCallback } from "react";
+// import { useNavigate } from "react-router-dom";
 import Form, {
   Item,
   Label,
   ButtonItem,
   ButtonOptions,
   RequiredRule,
-  EmailRule
-} from 'devextreme-react/form';
-import LoadIndicator from 'devextreme-react/load-indicator';
-
-import { useAuth } from '../../contexts/auth';
-
-import './login-form.scss';
+} from "devextreme-react/form";
+import LoadIndicator from "devextreme-react/load-indicator";
+import { useAuth } from "../../contexts/auth";
+import "./login-form.scss";
+import { useTranslation } from "react-i18next";
 
 export default function () {
-  const navigation = useNavigate();
+  const { t } = useTranslation();
+  // const navigation = useNavigate();
   const { logIn } = useAuth();
   const [loading, setLoading] = useState(false);
-  const formData = useRef({ email: '', password: '' });
+  const formData = useRef({ username: "", password: "" });
 
-  const onSubmit = useCallback(async (e) => {
-    e.preventDefault();
-    const { email, password } = formData.current;
-    setLoading(true);
-    if (logIn) { await logIn(email, password); }
-  }, [logIn]);
+  const onSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      const { username, password } = formData.current;
+      setLoading(true);
+      if (logIn) {
+        await logIn(username, password);
+      }
+    },
+    [logIn]
+  );
 
-  const onCreateAccountClick = useCallback(() => {
-    navigation('/create-account');
-  }, [navigation]);
+  // const onCreateAccountClick = useCallback(() => {
+  //   navigation("/create-account");
+  // }, [navigation]);
+
+  const usernameEditorOptions = {
+    stylingMode: "filled",
+    placeholder: t("login.username"),
+  };
+  const passwordEditorOptions = {
+    stylingMode: "filled",
+    placeholder: t("login.password"),
+    mode: "password",
+  };
+  // const rememberMeEditorOptions = {
+  //   text: t("login.remember-me"),
+  //   elementAttr: { class: "form-text" },
+  // };
 
   return (
-    <form className={'login-form'} onSubmit={onSubmit}>
+    <form className={"login-form"} onSubmit={onSubmit}>
       <Form formData={formData.current} disabled={loading}>
         <Item
-          dataField={'email'}
-          editorType={'dxTextBox'}
-          editorOptions={emailEditorOptions}
+          dataField={"username"}
+          editorType={"dxTextBox"}
+          editorOptions={usernameEditorOptions}
         >
-          <RequiredRule message="Email is required" />
-          <EmailRule message="Email is invalid" />
+          <RequiredRule />
           <Label visible={false} />
         </Item>
         <Item
-          dataField={'password'}
-          editorType={'dxTextBox'}
+          dataField={"password"}
+          editorType={"dxTextBox"}
           editorOptions={passwordEditorOptions}
         >
-          <RequiredRule message="Password is required" />
           <Label visible={false} />
         </Item>
-        <Item
-          dataField={'rememberMe'}
-          editorType={'dxCheckBox'}
+        {/* <Item
+          dataField={"rememberMe"}
+          editorType={"dxCheckBox"}
           editorOptions={rememberMeEditorOptions}
         >
           <Label visible={false} />
-        </Item>
+        </Item> */}
         <ButtonItem>
           <ButtonOptions
-            width={'100%'}
-            type={'default'}
+            width={"100%"}
+            type={"default"}
             useSubmitBehavior={true}
           >
             <span className="dx-button-text">
-              {
-                loading
-                  ? <LoadIndicator width={'24px'} height={'24px'} visible={true} />
-                  : 'Sign In'
-              }
+              {loading ? (
+                <LoadIndicator width={"24px"} height={"24px"} visible={true} />
+              ) : (
+                t("login.sign-in")
+              )}
             </span>
           </ButtonOptions>
         </ButtonItem>
-        <Item>
-          <div className={'link'}>
-            <Link to={'/reset-password'}>Forgot password?</Link>
+        {/* <Item>
+          <div className={"link"}>
+            <Link to={"/reset-password"}>{t("login.forgot-password")}</Link>
           </div>
-        </Item>
-        <ButtonItem>
+        </Item> */}
+        {/* <ButtonItem>
           <ButtonOptions
-            text={'Create an account'}
-            width={'100%'}
+            text={"Create an account"}
+            width={"100%"}
             onClick={onCreateAccountClick}
           />
-        </ButtonItem>
+        </ButtonItem> */}
       </Form>
     </form>
   );
 }
-
-const emailEditorOptions = { stylingMode: 'filled', placeholder: 'Email', mode: 'email' };
-const passwordEditorOptions = { stylingMode: 'filled', placeholder: 'Password', mode: 'password' };
-const rememberMeEditorOptions = { text: 'Remember me', elementAttr: { class: 'form-text' } };

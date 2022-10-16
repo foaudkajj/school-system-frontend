@@ -40,7 +40,7 @@ export default function ({ menuMode }: IProps) {
             }}
             className={'user-image'} />
         </div>
-        <div className={'user-name'}>{user?.email}</div>
+        <div className={'user-name'}>{user?.username}</div>
       </div>
 
       {menuMode === 'context' && (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext, useContext, useCallback } from 'react';
 
 interface IUser {
-  email: string;
+  username: string;
   avatarUrl: string;
 }
 
@@ -14,20 +14,20 @@ type AuthContextType = {
 const AuthContext = createContext<AuthContextType>({user: null, loading: false});
 const useAuth = () => useContext(AuthContext);
 const defaultUser = {
-  email: 'sandra@example.com',
-  avatarUrl: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/06.png'
+  username: 'أحمد عتال',
+  avatarUrl: 'https://media-exp1.licdn.com/dms/image/C4E03AQFR22tJZ3KvpQ/profile-displayphoto-shrink_400_400/0/1636040503228?e=1671667200&v=beta&t=hAc_sAXPfyLgqFlBzujnRDvot7VvoZydSEDvE36GaVM'
 }
 
 function AuthProvider(props: any) {
   const [user, setUser] = useState<IUser | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const logIn = useCallback(async (email, password) => {
+  const logIn = useCallback(async (username, password) => {
     // Send login request
-    console.log(email, password);
+    console.log(username, password);
 
     setUser({
-      email,
+      username: username,
       avatarUrl: defaultUser.avatarUrl
     });
   }, []);
