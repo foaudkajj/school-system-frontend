@@ -59,7 +59,7 @@ export default (props: any) => {
 
   return (
     <React.Fragment>
-      <h2 className={"content-block"}>{t("CATEGORY.TITLE")}</h2>
+      <h2 className={"content-block"}>{t("students.title")}</h2>
       <div className={"content-block responsive-paddings"}>
         <div className={"dx-card responsive-paddings"}>
           <DataGrid
