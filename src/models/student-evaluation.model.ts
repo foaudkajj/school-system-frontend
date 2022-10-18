@@ -7,7 +7,7 @@ export class StudentEvaluation {
   attendance: Attendance;
   participation: Evaluation;
   homework: Evaluation;
-  behaviout: Evaluation;
+  behaviour: Evaluation;
   fee: number;
   discount: number;
   transportFee: number;

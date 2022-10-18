@@ -175,7 +175,7 @@ export default (props: any) => {
           </Column>
 
           <Column
-            dataField={"behaviout"}
+            dataField={"behaviour"}
             caption={t("student-evaluation.behaviour")}
             dataType={"string"}
           >
