@@ -1,3 +1,7 @@
+import { Country } from "./country.model";
+import { EducationType } from "./enums";
+import { GenericList } from "./generic-list.model";
+
 export class Student {
   id: string;
   name: string;
@@ -10,4 +14,9 @@ export class Student {
   gsm: string;
   identityNo: string;
   address: string;
+  educationType: EducationType;
+  nationalityId: string;
+  documentTypeId: string;
+  nationality: Country;
+  documentType: GenericList;
 }
