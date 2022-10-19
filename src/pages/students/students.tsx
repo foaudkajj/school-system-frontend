@@ -150,6 +150,7 @@ export default (props: any) => {
             dataField={"gsm"}
             caption={t("students.gsm")}
             dataType={"string"}
+            editorOptions={{ mask: "(999)999-9999", rtlEnabled: false }}
           ></Column>
 
           <Column
