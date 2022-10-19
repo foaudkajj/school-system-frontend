@@ -83,6 +83,10 @@ export default (props: any) => {
     }
   };
 
+  const gridInitNewRow = (e)=>{
+    e.data.date = new Date();
+  }
+
   return (
     <React.Fragment>
       <h2 className={"content-block"}>{t("student-evaluation.title")}</h2>
@@ -97,6 +101,7 @@ export default (props: any) => {
           wordWrapEnabled={true}
           allowColumnReordering={true}
           onEditorPreparing={gridEditorPreparing}
+          onInitNewRow={gridInitNewRow}
         >
           <Scrolling columnRenderingMode={"virtual"} />
           <Editing
