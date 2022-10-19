@@ -1,5 +1,5 @@
 import { Teacher } from "../models";
-import AxiosService from "./axios.service";
+import { AxiosService } from "./axios.service";
 
 const getAll = (): Promise<Teacher[]> => {
   let result$ = AxiosService.get<Teacher[]>(`teachers/get`);
@@ -21,11 +21,9 @@ const remove = (key: string): Promise<Teacher> => {
   return result$;
 };
 
-const TeacherService = {
+export const TeacherService = {
   getAll,
   insert,
   modify,
   remove,
 };
-
-export default TeacherService;

@@ -1,9 +1,9 @@
-import InstallmentService from "./installment.service";
-import StudentEvaluationService from "./student-evaluation.service";
-import StudentService from "./student.service";
-import TeacherService from "./teacher.service";
+import { InstallmentService } from "./installment.service";
+import { StudentEvaluationService } from "./student-evaluation.service";
+import { StudentService } from "./student.service";
+import { TeacherService } from "./teacher.service";
 
-export const get = (
+const get = (
   serviceName: "STUDENT" | "STUDENT_EVALUATION" | "INSTALLMENT" | "TEACHER"
 ) => {
   switch (serviceName) {
@@ -24,8 +24,6 @@ export const get = (
   }
 };
 
-const GetService = {
+export const GetService = {
   get,
 };
-
-export default GetService;

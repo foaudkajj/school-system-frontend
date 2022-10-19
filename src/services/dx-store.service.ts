@@ -1,6 +1,6 @@
 import CustomStore, { Options } from "devextreme/data/custom_store";
 import DataSource from "devextreme/data/data_source";
-import ToastService from "./toast.service";
+import { ToastService } from "./toast.service";
 
 const getStore = (storeOptions: Options): DataSource => {
   return new DataSource({
@@ -44,8 +44,6 @@ const getStore = (storeOptions: Options): DataSource => {
   });
 };
 
-const DxStoreService = {
+export const DxStoreService = {
   getStore,
 };
-
-export default DxStoreService;

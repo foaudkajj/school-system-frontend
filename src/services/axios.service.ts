@@ -67,11 +67,9 @@ async function remove<T>(url: string) {
   }
 }
 
-const AxiosService = {
+export const AxiosService = {
   post,
   get,
   put,
   remove,
 };
-
-export default AxiosService;

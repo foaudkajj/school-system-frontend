@@ -9,12 +9,10 @@ import {
 } from "devextreme-react/data-grid";
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import DxStoreService from "../../services/dx-store.service";
 import DataSource from "devextreme/data/data_source";
-import GetService from "../../services/get.service";
-import StudentService from "../../services/student.service";
 import { Student } from "../../models";
 import { useNavigation } from "../../contexts/navigation";
+import { DxStoreService, GetService, StudentService } from "../../services";
 
 const SERVICE_NAME = "INSTALLMENT";
 

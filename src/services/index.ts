@@ -6,3 +6,5 @@ export * from "./get.service";
 export * from "./student-evaluation.service";
 export * from "./installment.service";
 export * from "./country.service";
+export * from "./generic-list.service";
+export * from "./teacher.service";

@@ -1,5 +1,5 @@
 import { Installment } from "../models";
-import AxiosService from "./axios.service";
+import { AxiosService } from "./axios.service";
 
 const getAll = (): Promise<Installment[]> => {
   let result$ = AxiosService.get<Installment[]>(`installments/get`);
@@ -12,7 +12,10 @@ const insert = (row: Installment): Promise<Installment> => {
 };
 
 const modify = (key: string, row: Installment): Promise<Installment> => {
-  let result$ = AxiosService.put<Installment>(`installments/update/${key}`, row);
+  let result$ = AxiosService.put<Installment>(
+    `installments/update/${key}`,
+    row
+  );
   return result$;
 };
 
@@ -21,11 +24,9 @@ const remove = (key: string): Promise<Installment> => {
   return result$;
 };
 
-const InstallmentService = {
+export const InstallmentService = {
   getAll,
   insert,
   modify,
   remove,
 };
-
-export default InstallmentService;

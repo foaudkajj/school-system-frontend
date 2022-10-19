@@ -16,8 +16,6 @@ const showToast = async (
   notify(text, status, timer);
 };
 
-const ToastService = {
+export const ToastService = {
   showToast: showToast,
 };
-
-export default ToastService;

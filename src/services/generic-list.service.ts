@@ -1,5 +1,5 @@
 import { GenericList } from "../models";
-import AxiosService from "./axios.service";
+import { AxiosService } from "./axios.service";
 
 const getAll = (): Promise<GenericList[]> => {
   let result$ = AxiosService.get<GenericList[]>(`generic-lists/get`);
@@ -29,12 +29,10 @@ const remove = (key: string): Promise<GenericList> => {
   return result$;
 };
 
-const GenericListService = {
+export const GenericListService = {
   getAll,
   getById,
   insert,
   modify,
   remove,
 };
-
-export default GenericListService;

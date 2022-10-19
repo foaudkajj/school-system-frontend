@@ -1,5 +1,5 @@
 import { Country } from "../models";
-import AxiosService from "./axios.service";
+import { AxiosService } from "./axios.service";
 
 const getAll = (): Promise<Country[]> => {
   let result$ = AxiosService.get<Country[]>(`countries/get`);
@@ -21,11 +21,9 @@ const remove = (key: string): Promise<Country> => {
   return result$;
 };
 
-const CountryService = {
+export const CountryService = {
   getAll,
   insert,
   modify,
   remove,
 };
-
-export default CountryService;
