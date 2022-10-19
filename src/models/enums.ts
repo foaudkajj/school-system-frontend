@@ -37,5 +37,9 @@ export enum Type {
   CV = "CV",
   Photo = "Photo",
   Certificate = "Certificate",
-  General = "General"
+  General = "General",
+}
+
+export enum GenericListIds {
+  DocumentType = "5bf0a0ad-16d2-4d56-877e-350e4dd7ff54",
 }

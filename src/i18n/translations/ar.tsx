@@ -15,6 +15,12 @@ export const ar = {
     "mother-number": "رقم الأم",
     male: "ذكر",
     female: "انثى",
+    "education-type": "نوع التعليم",
+    "nationality-id": "الجنسية",
+    "document-type-id": "وثيقة التسجيل",
+    preschool: "حضانة",
+    school: "مدرسة",
+    course: "دورة",
   },
   "student-evaluation": {
     title: "التقييم",
