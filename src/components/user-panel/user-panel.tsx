@@ -35,12 +35,12 @@ export default function ({ menuMode }: IProps) {
         <div className={'image-container'}>
           <div
             style={{
-              background: `url(${user?.avatarUrl}) no-repeat #fff`,
+              background: `url(https://media-exp1.licdn.com/dms/image/C4E03AQFR22tJZ3KvpQ/profile-displayphoto-shrink_400_400/0/1636040503228?e=1671667200&v=beta&t=hAc_sAXPfyLgqFlBzujnRDvot7VvoZydSEDvE36GaVM) no-repeat #fff`,
               backgroundSize: 'cover'
             }}
             className={'user-image'} />
         </div>
-        <div className={'user-name'}>{user?.username}</div>
+        <div className={'user-name'}>{user?.name}</div>
       </div>
 
       {menuMode === 'context' && (

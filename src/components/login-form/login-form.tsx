@@ -11,6 +11,7 @@ import LoadIndicator from "devextreme-react/load-indicator";
 import { useAuth } from "../../contexts/auth";
 import "./login-form.scss";
 import { useTranslation } from "react-i18next";
+import { ToastService } from "../../services";
 
 export default function () {
   const { t } = useTranslation();
@@ -25,7 +26,12 @@ export default function () {
       const { username, password } = formData.current;
       setLoading(true);
       if (logIn) {
-        await logIn(username, password);
+        try {
+          await logIn(username, password);
+        } catch (e) {
+          ToastService.showToast("error", t("messages.not-valid-credentials"));
+          setLoading(false);
+        }
       }
     },
     [logIn]

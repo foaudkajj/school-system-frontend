@@ -67,5 +67,6 @@ export const ar = {
   messages: {
     unsucessful: "حدث خطأ غير متوقع.",
     sucessful: "تمت العملية بنجاح",
+    "not-valid-credentials": "اسم المستخدم أو كلمة المرور غير صحيحة",
   },
 };

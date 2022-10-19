@@ -8,3 +8,4 @@ export * from "./installment.service";
 export * from "./country.service";
 export * from "./generic-list.service";
 export * from "./teacher.service";
+export * from "./auth.service";

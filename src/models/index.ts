@@ -11,3 +11,5 @@ export * from "./generic-list.model";
 export * from "./lesson.model";
 export * from "./user.model";
 export * from "./enums";
+export * from "./requests/login.request";
+export * from "./responses/login.response";

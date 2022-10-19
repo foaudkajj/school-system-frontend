@@ -1,35 +1,39 @@
-import React, { useState, useEffect, createContext, useContext, useCallback } from 'react';
-
-interface IUser {
-  username: string;
-  avatarUrl: string;
-}
+import React, {
+  useState,
+  useEffect,
+  createContext,
+  useContext,
+  useCallback,
+} from "react";
+import { LoginResponse } from "../models";
+import { AuthService } from "../services";
 
 type AuthContextType = {
-  user: IUser | null;
-  loading: boolean
+  user: LoginResponse | null;
+  loading: boolean;
   logIn?: (email: string, password: string) => Promise<void>;
   logOut?: any;
 };
-const AuthContext = createContext<AuthContextType>({user: null, loading: false});
+const AuthContext = createContext<AuthContextType>({
+  user: null,
+  loading: false,
+});
 const useAuth = () => useContext(AuthContext);
-const defaultUser = {
-  username: 'أحمد عتال',
-  avatarUrl: 'https://media-exp1.licdn.com/dms/image/C4E03AQFR22tJZ3KvpQ/profile-displayphoto-shrink_400_400/0/1636040503228?e=1671667200&v=beta&t=hAc_sAXPfyLgqFlBzujnRDvot7VvoZydSEDvE36GaVM'
-}
 
 function AuthProvider(props: any) {
-  const [user, setUser] = useState<IUser | null>(null);
+  const [user, setUser] = useState<LoginResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
   const logIn = useCallback(async (username, password) => {
     // Send login request
-    console.log(username, password);
 
-    setUser({
+    const user = await AuthService.login({
       username: username,
-      avatarUrl: defaultUser.avatarUrl
+      password: password,
     });
+    if (user) {
+      setUser(user);
+    }
   }, []);
 
   const logOut = useCallback(() => {
@@ -40,8 +44,12 @@ function AuthProvider(props: any) {
 
   useEffect(() => {
     // Retrieve and save user data on initial load
-
-    setUser(defaultUser);
+    const user = JSON.parse(localStorage.getItem("user") ?? "false");
+    if (user) {
+      setUser(user as LoginResponse);
+    } else {
+      setUser(null);
+    }
     setLoading(false);
   }, []);
 
@@ -50,4 +58,4 @@ function AuthProvider(props: any) {
   );
 }
 
-export { AuthProvider, useAuth }
+export { AuthProvider, useAuth };
