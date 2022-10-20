@@ -1,36 +1,47 @@
 export const navigation = [
   {
-    text: "الصفحة الرئيسية",
+    text: "navigation.home-page",
     path: "/home",
     icon: "home",
   },
   {
-    text: "إدارة الطلاب",
+    text: "navigation.management",
     icon: "fa-solid fa-users",
     items: [
       {
-        text: "الطلاب",
+        text: "navigation.class-lesson",
+        icon: "fa-solid fa-user",
+        path: "/class-lesson",
+      },
+    ],
+  },
+  {
+    text: "navigation.student-management",
+    icon: "fa-solid fa-users",
+    items: [
+      {
+        text: "navigation.students",
         icon: "fa-solid fa-user",
         path: "/students",
       },
       {
-        text: "التقييم",
+        text: "navigation.student-evaluation",
         icon: "fa-solid fa-chalkboard-user",
         path: "/student-evaluation",
       },
       {
-        text: "الدفعات",
+        text: "navigation.installments",
         icon: "fa-solid fa-credit-card",
         path: "/installments",
       },
     ],
   },
   {
-    text: "إدارة الكادر",
+    text: "navigation.staff-management",
     icon: "fa-solid fa-person-chalkboard",
     items: [
       {
-        text: "المدرسين",
+        text: "navigation.teachers",
         icon: "fa-solid fa-chalkboard-user",
         path: "/teachers",
       },

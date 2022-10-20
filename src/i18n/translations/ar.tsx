@@ -69,4 +69,15 @@ export const ar = {
     sucessful: "تمت العملية بنجاح",
     "not-valid-credentials": "اسم المستخدم أو كلمة المرور غير صحيحة",
   },
+  navigation: {
+    "home-page": "الصفحة الرئيسية",
+    management: "الإدارة",
+    "class-lesson": "الصفوف والدروس",
+    "student-management": "إدارة الطلاب",
+    students: "الطلاب",
+    "student-evaluation": "التقييم",
+    installments: "الدفعات",
+    "staff-management": "إدارة الكادر",
+    teachers: "المدرسين",
+  },
 };
