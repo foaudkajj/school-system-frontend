@@ -27,12 +27,13 @@ function AuthProvider(props: any) {
   const logIn = useCallback(async (username, password) => {
     // Send login request
 
-    const user = await AuthService.login({
+    const loginResponse = await AuthService.login({
       username: username,
       password: password,
     });
-    if (user) {
-      setUser(user);
+    if (loginResponse) {
+      localStorage.setItem("user", JSON.stringify(loginResponse));
+      setUser(loginResponse);
     }
   }, []);
 
