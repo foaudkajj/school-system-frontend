@@ -9,3 +9,5 @@ export * from "./country.service";
 export * from "./generic-list.service";
 export * from "./teacher.service";
 export * from "./auth.service";
+export * from "./class.service";
+export * from "./lesson.service";

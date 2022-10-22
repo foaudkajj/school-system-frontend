@@ -11,6 +11,7 @@ import Students from "./pages/students/students";
 import StudentEvaluation from "./pages/student-evaluation/student-evaluation";
 import Installment from "./pages/installment/installment";
 import Teacher from "./pages/teacher/teacher";
+import ClassLesson from "./pages/class-lesson/class-lesson";
 
 export default function () {
   return (
@@ -37,6 +38,10 @@ export default function () {
         <Route
           path="/teachers"
           element={<Teacher currentPath={"/teachers"} />}
+        />
+        <Route
+          path="/class-lesson"
+          element={<ClassLesson currentPath={"/class-lesson"} />}
         />
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>

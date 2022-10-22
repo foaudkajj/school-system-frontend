@@ -13,14 +13,9 @@ export const ar = {
     "father-number": "رقم الأب",
     "mother-name": "اسم الأم",
     "mother-number": "رقم الأم",
-    male: "ذكر",
-    female: "انثى",
     "education-type": "نوع التعليم",
     "nationality-id": "الجنسية",
     "document-type-id": "وثيقة التسجيل",
-    preschool: "حضانة",
-    school: "مدرسة",
-    course: "دورة",
   },
   "student-evaluation": {
     title: "التقييم",
@@ -31,12 +26,6 @@ export const ar = {
     homework: "الوظيفة",
     behaviour: "السلوك",
     note: "ملاحظة",
-    available: "موجود",
-    late: "متأخر",
-    absent: "غائب",
-    good: "جيد",
-    mid: "وسط",
-    bad: "سيء",
   },
   installment: {
     title: "الدفعات",
@@ -63,6 +52,35 @@ export const ar = {
     "remember-me": "تذكرني",
     "forgot-password": "نسيت كلمة المرور؟",
     "sign-in": "تسجيل الدخول",
+  },
+  "class-lesson": {
+    title: "الصفوف و الدروس",
+    classes: "الصفوف",
+    lessons: "الدروس",
+    "select-class": "اختر الصف للبدء بتعيين الدروس",
+    name: "الاسم",
+    "education-type": "نوع التعليم",
+  },
+  enums: {
+    "education-type": {
+      preschool: "حضانة",
+      school: "مدرسة",
+      course: "دورة",
+    },
+    attendance: {
+      available: "موجود",
+      late: "متأخر",
+      absent: "غائب",
+    },
+    evaluation: {
+      good: "جيد",
+      mid: "وسط",
+      bad: "سيء",
+    },
+    gender: {
+      male: "ذكر",
+      female: "انثى",
+    },
   },
   messages: {
     unsucessful: "حدث خطأ غير متوقع.",

@@ -63,7 +63,7 @@ export default (props: any) => {
   const educationTypeList = Object.keys(EducationType).map((et) => {
     return {
       id: et,
-      name: t(`students.${et.toLowerCase()}`),
+      name: t(`enums.education-type.${et.toLowerCase()}`),
     };
   });
 

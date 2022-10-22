@@ -25,14 +25,14 @@ export default (props: any) => {
   const attendanceList = Object.keys(Attendance).map((at) => {
     return {
       id: at,
-      name: t(`student-evaluation.${at.toLowerCase()}`),
+      name: t(`enums.attendance.${at.toLowerCase()}`),
     };
   });
 
   const evaluationList = Object.keys(Evaluation).map((at) => {
     return {
       id: at,
-      name: t(`student-evaluation.${at.toLowerCase()}`),
+      name: t(`enums.evaluation.${at.toLowerCase()}`),
     };
   });
 
@@ -81,9 +81,9 @@ export default (props: any) => {
     }
   };
 
-  const gridInitNewRow = (e)=>{
+  const gridInitNewRow = (e) => {
     e.data.date = new Date();
-  }
+  };
 
   return (
     <React.Fragment>
