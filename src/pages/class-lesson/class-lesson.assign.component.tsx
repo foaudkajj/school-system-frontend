@@ -58,7 +58,7 @@ export default (props: ClassLessonProps) => {
         placeholder={t("class-lesson.select-class")}
         onSelectionChanged={onSelectedClassChanged}
         showClearButton={true}
-        style={{ marginBottom: "20px", backgroundColor: "red" }}
+        style={{ marginBottom: "20px" }}
       />
 
       {selectedClass ? (

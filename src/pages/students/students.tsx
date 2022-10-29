@@ -33,6 +33,7 @@ export default (props: any) => {
   const { setNavigationData } = useNavigation();
   const [nationalityList, setNationalityList] = useState([]);
   const [documentTypeList, setDocumentTypeList] = useState([]);
+  const [store, setStore] = useState<DataSource>();
 
   useEffect(() => {
     if (setNavigationData) {
@@ -47,16 +48,46 @@ export default (props: any) => {
       gl.items = translateItems<GenericListItem>(gl.items, t);
       setDocumentTypeList(gl.items);
     });
-  }, [setNavigationData, currentPath, t]);
+
+    setStore(
+      DxStoreService.getStore({
+        key: "id",
+        load: (options) => {
+          return GetService.get(SERVICE_NAME)?.getAll() ?? [];
+        },
+        insert: (values) => {
+          return (
+            GetService.get(SERVICE_NAME)?.insert(values) ??
+            Promise.resolve(undefined)
+          );
+        },
+        update: (key, values) => {
+          return (
+            GetService.get(SERVICE_NAME)?.modify(key, values) ??
+            Promise.resolve(undefined)
+          );
+        },
+        remove: (key) => {
+          return (
+            GetService.get(SERVICE_NAME)?.remove(key) ??
+            Promise.resolve(undefined)
+          );
+        },
+        onInserted: (values, key) => studentsGrid?.current?.instance?.refresh(),
+        onRemoved: (key) => studentsGrid?.current?.instance?.refresh(),
+        onUpdated: (values, key) => studentsGrid?.current?.instance?.refresh(),
+      })
+    );
+  }, [setNavigationData, currentPath]);
 
   const genderList = [
     {
       id: "Male",
-      name: t("students.male"),
+      name: t("enums.gender.male"),
     },
     {
       id: "Female",
-      name: t("students.female"),
+      name: t("enums.gender.female"),
     },
   ];
 
@@ -69,33 +100,6 @@ export default (props: any) => {
 
   const studentsGrid = useRef(null);
 
-  const store: DataSource = DxStoreService.getStore({
-    key: "id",
-    load: (options) => {
-      return GetService.get(SERVICE_NAME)?.getAll() ?? [];
-    },
-    insert: (values) => {
-      return (
-        GetService.get(SERVICE_NAME)?.insert(values) ??
-        Promise.resolve(undefined)
-      );
-    },
-    update: (key, values) => {
-      return (
-        GetService.get(SERVICE_NAME)?.modify(key, values) ??
-        Promise.resolve(undefined)
-      );
-    },
-    remove: (key) => {
-      return (
-        GetService.get(SERVICE_NAME)?.remove(key) ?? Promise.resolve(undefined)
-      );
-    },
-    onInserted: (values, key) => studentsGrid?.current?.instance?.refresh(),
-    onRemoved: (key) => studentsGrid?.current?.instance?.refresh(),
-    onUpdated: (values, key) => studentsGrid?.current?.instance?.refresh(),
-  });
-
   return (
     <React.Fragment>
       <h2 className={"content-block"}>{t("students.title")}</h2>
@@ -105,7 +109,7 @@ export default (props: any) => {
           className={"dx-card wide-card"}
           dataSource={store}
           allowColumnResizing={true}
-          columnAutoWidth={true}
+          columnAutoWidth={false}
           showBorders={true}
           wordWrapEnabled={true}
           allowColumnReordering={true}
@@ -225,6 +229,7 @@ export default (props: any) => {
             dataField={"identityNo"}
             caption={t("students.identity-no")}
             dataType={"string"}
+            editorOptions={{ mask: "99999999999", rtlEnabled: false }}
           >
             <StringLengthRule max={20} />
           </Column>

@@ -163,6 +163,7 @@ export default (props: any) => {
             dataField={"identityNo"}
             caption={t("teacher.identity-no")}
             dataType={"string"}
+            editorOptions={{ mask: "99999999999", rtlEnabled: false }}
           >
             <RequiredRule />
             <StringLengthRule max={20} />
