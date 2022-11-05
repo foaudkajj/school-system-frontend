@@ -1,14 +1,26 @@
 import axios, { AxiosResponse } from "axios";
+import { t } from "i18next";
 
 const client = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
 
 client.interceptors.request.use(function (config) {
-  const token = sessionStorage.getItem("Authorization");
+  const token = sessionStorage.getItem("token");
   config.headers.Authorization = token ? `Bearer ${token}` : "";
   return config;
 });
+
+client.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error instanceof axios.AxiosError) {
+      throw new Error(t(error?.response?.data?.message) ?? error.message);
+    } else {
+      throw error;
+    }
+  }
+);
 
 async function get<T>(url: string) {
   try {
