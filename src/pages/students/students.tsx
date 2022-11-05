@@ -167,7 +167,6 @@ export default (props: any) => {
             dataType={"string"}
           >
             <StringLengthRule max={50} />
-            <RequiredRule />
           </Column>
 
           <Column
@@ -176,7 +175,6 @@ export default (props: any) => {
             dataType={"string"}
           >
             <StringLengthRule max={50} />
-            <RequiredRule />
           </Column>
 
           <Column
@@ -189,7 +187,6 @@ export default (props: any) => {
               displayExpr={"name"}
               valueExpr={"id"}
             />
-            <RequiredRule />
           </Column>
 
           <Column
@@ -202,7 +199,6 @@ export default (props: any) => {
               displayExpr={"name"}
               valueExpr={"id"}
             />
-            <RequiredRule />
           </Column>
 
           <Column
@@ -215,7 +211,6 @@ export default (props: any) => {
               displayExpr={"name"}
               valueExpr={"id"}
             />
-            <RequiredRule />
           </Column>
 
           <Column
