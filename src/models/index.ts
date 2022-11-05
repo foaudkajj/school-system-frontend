@@ -14,4 +14,8 @@ export * from "./enums";
 export * from "./requests/login.request";
 export * from "./responses/login.response";
 export * from "./class-lesson.model";
+export * from "./role.model";
+export * from "./permission.model";
+export * from "./role-permission.model";
 export * from "./requests/assign-lesson-to-class.request";
+export * from "./responses/get-all-users.response";

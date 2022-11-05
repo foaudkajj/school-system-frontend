@@ -61,10 +61,19 @@ export const ar = {
     name: "الاسم",
     "education-type": "نوع التعليم",
   },
+  users: {
+    title: "المستخدمين",
+    "user-type": "دور المستخدم",
+    "sub-user": "المتسخدم",
+    username: "اسم المستخدم",
+    password: "كلمة المرور",
+    "user-status": "الحالة",
+    role: "الدور",
+  },
   enums: {
     "education-type": {
-      preschool: "حضانة",
-      school: "مدرسة",
+      preschool: "روضة",
+      school: "دروس متابعة",
       course: "دورة",
     },
     attendance: {
@@ -80,6 +89,15 @@ export const ar = {
     gender: {
       male: "ذكر",
       female: "انثى",
+    },
+    "user-type": {
+      teacher: "أستاذ",
+      student: "طالب",
+      employee: "موظف",
+    },
+    "user-status": {
+      active: "فعّال",
+      passive: "غير فعّال",
     },
   },
   messages: {
@@ -97,5 +115,9 @@ export const ar = {
     installments: "الدفعات",
     "staff-management": "إدارة الكادر",
     teachers: "المدرسين",
+    users: "المستخدمين",
   },
+  ERROR:{
+    USER_ALREADY_EXIST:'تم إضافة المستخدم سابقاً'
+  }
 };

@@ -4,6 +4,7 @@ import { LessonService } from "./lesson.service";
 import { StudentEvaluationService } from "./student-evaluation.service";
 import { StudentService } from "./student.service";
 import { TeacherService } from "./teacher.service";
+import { UserService } from "./user.service";
 
 const get = (
   serviceName:
@@ -13,6 +14,7 @@ const get = (
     | "TEACHER"
     | "CLASS"
     | "LESSON"
+    | "USERS"
 ) => {
   switch (serviceName) {
     case "STUDENT":
@@ -32,6 +34,9 @@ const get = (
 
     case "LESSON":
       return LessonService;
+
+    case "USERS":
+      return UserService;
 
     default:
       return undefined;

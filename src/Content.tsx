@@ -12,6 +12,7 @@ import StudentEvaluation from "./pages/student-evaluation/student-evaluation";
 import Installment from "./pages/installment/installment";
 import Teacher from "./pages/teacher/teacher";
 import ClassLesson from "./pages/class-lesson/class-lesson";
+import User from "./pages/users/user";
 
 export default function () {
   return (
@@ -43,6 +44,7 @@ export default function () {
           path="/class-lesson"
           element={<ClassLesson currentPath={"/class-lesson"} />}
         />
+        <Route path="/users" element={<User currentPath={"/users"} />} />
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
       <Footer>

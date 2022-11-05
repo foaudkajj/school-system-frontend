@@ -11,3 +11,5 @@ export * from "./teacher.service";
 export * from "./auth.service";
 export * from "./class.service";
 export * from "./lesson.service";
+export * from "./user.service";
+export * from "./role.service";

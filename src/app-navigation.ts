@@ -6,12 +6,17 @@ export const navigation = [
   },
   {
     text: "navigation.management",
-    icon: "fa-solid fa-users",
+    icon: "fa-solid fa-people-roof",
     items: [
       {
         text: "navigation.class-lesson",
         icon: "fa-solid fa-user",
         path: "/class-lesson",
+      },
+      {
+        text: "navigation.users",
+        icon: "fa-solid fa-users",
+        path: "/users",
       },
     ],
   },

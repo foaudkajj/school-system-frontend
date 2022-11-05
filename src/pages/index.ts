@@ -6,3 +6,4 @@ export { default as StudentEvaluationPage } from "./student-evaluation/student-e
 export { default as InstallemntPage } from "./installment/installment";
 export { default as TeacherPage } from "./teacher/teacher";
 export { default as ClassLessonPage } from "./class-lesson/class-lesson";
+export { default as UserPage } from "./users/user";
