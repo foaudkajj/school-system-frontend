@@ -32,7 +32,8 @@ function AuthProvider(props: any) {
       password: password,
     });
     if (loginResponse) {
-      localStorage.setItem("user", JSON.stringify(loginResponse));
+      sessionStorage.setItem("user", JSON.stringify(loginResponse));
+      sessionStorage.setItem("token", loginResponse.token);
       setUser(loginResponse);
     }
   }, []);
@@ -40,12 +41,14 @@ function AuthProvider(props: any) {
   const logOut = useCallback(() => {
     // Clear user data
 
+    sessionStorage.removeItem("user");
+    sessionStorage.removeItem("token");
     setUser(null);
   }, []);
 
   useEffect(() => {
     // Retrieve and save user data on initial load
-    const user = JSON.parse(localStorage.getItem("user") ?? "false");
+    const user = JSON.parse(sessionStorage.getItem("user") ?? "false");
     if (user) {
       setUser(user as LoginResponse);
     } else {
